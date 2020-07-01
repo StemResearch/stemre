@@ -16,10 +16,22 @@ pip install stemre
 import stemre as stm
 
 # differentiation of parametric equations
-stm.parametric_differentiation()
+t = sym.symbols('t')
+x = t ** 3 - 3 * t ** 2
+y = t ** 4 - 8 * t ** 2
+parametric_differentiation(f = x, g = y, 
+                           dependent_variable = t, n = 3)
 
 # initial value problems
-stm.ivps()
+ode_function = '-1.2 * y + 7 * exp(-0.3 * t)'
+exact_solution = '70/9 * exp(-0.3 * t) - 43/9 * exp(-1.2 * t)'
+ivps(ode_equations = [ode_function, exact_solution],
+     time_span = [0, 1],
+     initial_y = 3,
+     steps_stepsize = ['h', 0.12],
+     ivp_method = ['Fourth order', None], 
+     show_iterations = None, 
+     decimal_points = 8)
 ```
 
 ## Support
